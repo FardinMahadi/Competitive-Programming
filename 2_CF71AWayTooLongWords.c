@@ -1,32 +1,26 @@
 #include <stdio.h>
-
-int stringLen(char *str);
+#include <string.h>
 
 int main()
 {
-    char longWord[100];
-    scanf("%s", longWord);
-    int length = stringLen(longWord);
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        char longWord[101];
+        scanf("%s", longWord);
 
-    if (length > 10)
-    {
-        printf("%c%d%c", longWord[0], length - 2, longWord[length - 1]);
-    }
-    else
-    {
-        printf("%s", longWord);
+        int length = strlen(longWord);
+
+        if (length > 10)
+        {
+            printf("%c%d%c\n", longWord[0], length - 2, longWord[length - 1]);
+        }
+        else
+        {
+            printf("%s\n", longWord);
+        }
     }
 
     return 0;
-}
-
-int stringLen(char *str)
-{
-    int length = 0;
-    while (*str != '\0')
-    {
-        length++;
-        str++;
-    }
-    return length;
 }
