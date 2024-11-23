@@ -3,12 +3,10 @@ using namespace std;
 
 int main()
 {
-    int a, b;
+    long long a, b;
     cin >> a >> b;
 
-    int n = a + b;
-
-    if (n >= 1 && (a - b == 1 || b - a == 1))
+    if ((a == b || (a + 1) == b || (b + 1) == a) && a > 0 && b > 0)
     {
         cout << "YES" << endl;
     }
