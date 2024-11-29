@@ -1,36 +1,49 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main()
 {
     int n;
-    vector<int> numbers(n);
-    vector<int> even_indices;
-    vector<int> odd_indices;
-
     cin >> n;
 
-    for (int i = 0; i < n; i++)
+    int even_index = -1, odd_index = -1;
+    int even_count = 0, odd_count = 0;
+
+    for (int i = 1; i <= n; i++)
     {
-        cin >> numbers[i];
-        if (numbers[i] % 2 == 0)
+        int num;
+        cin >> num;
+
+        if (num % 2 == 0)
         {
-            even_indices.push_back(i + 1);
+            even_count++;
+            even_index = i;
         }
         else
         {
-            odd_indices.push_back(i + 1);
+            odd_count++;
+            odd_index = i;
+        }
+
+        if (even_count > 1 && odd_count == 1)
+        {
+            cout << odd_index << endl;
+            return 0;
+        }
+        if (odd_count > 1 && even_count == 1)
+        {
+            cout << even_index << endl;
+            return 0;
         }
     }
 
-    if (even_indices.size() == 1)
+    if (even_count == 1)
     {
-        cout << even_indices[0] << endl;
+        cout << even_index << endl;
     }
     else
     {
-        cout << odd_indices[0] << endl;
+        cout << odd_index << endl;
     }
 
     return 0;
