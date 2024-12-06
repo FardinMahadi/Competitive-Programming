@@ -1,3 +1,4 @@
+// 4 + 12 + 20 + ... + nth
 #include <stdio.h>
 
 int main()

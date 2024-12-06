@@ -1,3 +1,5 @@
+// 1 + 3 + 5 + ... + nth
+
 #include <stdio.h>
 
 int main()
