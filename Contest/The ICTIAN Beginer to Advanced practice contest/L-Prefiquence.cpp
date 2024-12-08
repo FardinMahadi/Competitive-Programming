@@ -25,8 +25,11 @@ int main()
             {
                 i++;
             }
+
             if (i == n)
+            {
                 break;
+            }
         }
 
         cout << i << endl;
