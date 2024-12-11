@@ -8,7 +8,7 @@ int main()
 
     while (tc--)
     {
-        int days, happyDayNum = 0;
+        int days, happyDays = 0;
         cin >> days;
 
         while (days--)
@@ -20,3 +20,5 @@ int main()
 
     return 0;
 }
+
+// Link -> https://codeforces.com/problemset/problem/2047/A
