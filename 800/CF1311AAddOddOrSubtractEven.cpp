@@ -1,5 +1,5 @@
 #include <iostream>  // In the name of Allah, the Most Gracious, the Most Merciful
-using namespace std; // Incomplete
+using namespace std; // Incomplete: LinK -> https://codeforces.com/problemset/problem/1311/A
 
 int main()
 {
