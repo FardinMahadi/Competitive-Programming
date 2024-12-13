@@ -17,7 +17,7 @@ int main()
         }
         else if (n % 3 == 2)
         {
-            cout << "Second" << endl;
+            cout << "First" << endl;
         }
         else
         {
