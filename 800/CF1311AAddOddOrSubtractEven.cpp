@@ -1,5 +1,5 @@
-#include <iostream>  // In the name of Allah, the Most Gracious, the Most Merciful
-using namespace std; // Incomplete: LinK -> https://codeforces.com/problemset/problem/1311/A
+#include <iostream> // In the name of Allah, the Most Gracious, the Most Merciful
+using namespace std;
 
 int main()
 {
@@ -8,22 +8,20 @@ int main()
 
     while (tc--)
     {
-        int a, b, x, y, movesCount = 0;
+        int a, b;
         cin >> a >> b;
 
         if (a == b)
         {
-            cout << movesCount << endl;
+            cout << 0 << endl;
         }
-
-        if (a < b)
+        else if (((b > a && (b - a) % 2 == 1) || (a > b && (a - b) % 2 == 0)))
         {
-            if (a % 2 != 0)
-            {
-                x = b - a;
-                a += x;
-                if (a)
-            }
+            cout << 1 << endl;
+        }
+        else
+        {
+            cout << 2 << endl;
         }
     }
 
