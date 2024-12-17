@@ -4,14 +4,17 @@ using namespace std;
 
 int main()
 {
-    long long n, m; // Use long long to handle large values
+    long long n, m;
     cin >> n >> m;
 
-    // Total number of tight dominoes
-    long long totalDominoes = 2LL * (n * m) - n - m;
-
-    // Output the result
-    cout << totalDominoes << endl;
+    if (m == 1)
+    {
+        cout << n - 1 << endl;
+    }
+    else
+    {
+        cout << (1LL * n * m) - n << endl;
+    }
 
     return 0;
 }
