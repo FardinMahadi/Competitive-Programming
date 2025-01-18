@@ -14,4 +14,9 @@ int main()
 
     vector<int>::iterator it = v.begin();
     cout << *(it + 1) << endl;
+
+    for (it = v.begin(); it != v.end(); ++it)
+    {
+        cout << (*it) << endl;
+    }
 }
