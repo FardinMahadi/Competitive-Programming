@@ -24,7 +24,9 @@ int main()
     m[5] = "cde";
 
     auto it = m.find(7);
-    m.erase(3); // o(log(n))
+    if (it != m.end())
+        m.erase(it); // o(log(n))
+    // m.clear();
     // if (it == m.end())
     // {
     //     cout << "No value" << endl;
