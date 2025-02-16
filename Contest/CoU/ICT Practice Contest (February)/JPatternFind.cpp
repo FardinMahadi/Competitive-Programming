@@ -1,44 +1,43 @@
-// In the name of Allah, the Most Gracious, the Most Merciful
 #include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int tc;
-    cin >> tc;
+    int t;
+    cin >> t;
 
-    while (tc--)
+    while (t--)
     {
-        // input
         string a, b;
         cin >> a >> b;
 
         vector<int> idx;
 
-        // algo
-        for (int i = 0; i < a.length(); i++)
+        int pos = 0;
+
+        // main algo
+        while ((pos = a.find(b, pos)) != string::npos)
         {
-            if (a.find(b, i) == i)
-            {
-                idx.push_back(i);
-                i += b.length() - 1;
-            }
+            idx.push_back(pos);
+            pos++;
         }
 
-        // output
-        if (!idx.empty())
+        // printing the output
+        if (idx.size() > 0)
         {
             cout << idx.size() << endl;
             for (int i = 0; i < idx.size(); i++)
             {
-                cout << idx[i] + 1 << " ";
+                cout << (idx[i] + 1) << " ";
             }
+            cout << endl;
         }
         else
         {
-            cout << "Not Found";
+            cout << "Not Found" << endl;
         }
-        cout << endl
-             << endl;
+        cout << endl;
     }
+
+    return 0;
 }
