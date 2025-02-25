@@ -11,7 +11,7 @@ int main()
     {
         n--;
         m--;
-        turn++;
+        turn
     }
 
     if (turn % 2 == 0)
