@@ -1,3 +1,1 @@
-Fardin 20
-Ramim 25
-Yasin 30
+fardin 23424

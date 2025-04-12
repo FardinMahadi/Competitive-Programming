@@ -9,11 +9,13 @@ int main()
     while (n--)
     {
         FILE *std;
-        int marks;
         char name[100];
+        int marks;
 
-        printf("Enter name and marks: ");
-        scanf("%s %d", name, &marks);
+        printf("Enter name: ");
+        scanf("%s", name);
+        printf("Enter mark: ");
+        scanf("%d", &marks);
 
         std = fopen("student.txt", "a");
         if (std == NULL)
