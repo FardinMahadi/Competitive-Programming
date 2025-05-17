@@ -7,17 +7,21 @@ using namespace std;
     cin >> t;    \
     while (t--)
 
+#define yes cout << "YES" << '\n'
+#define no cout << "NO" << '\n'
+
 int main()
 {
+
     test
     {
-        long double a, b, c;
+        int a, b, c;
         cin >> a >> b >> c;
 
-        if ((a + b) / 2 > c)
-            cout << "YES" << endl;
+        if ((a + b) == c || (b + c) == a || (a + c) == b)
+            yes;
         else
-            cout << "NO" << endl;
+            no;
     }
 
     return 0;
