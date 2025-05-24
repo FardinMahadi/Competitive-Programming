@@ -1,0 +1,70 @@
+{
+  "C++ Boilerplate": {
+    "prefix": "boilerplate",
+    "body": [
+      "// In the name of Allah, the Most Gracious, the Most Merciful",
+      "// C: FardinMahadi",
+      "",
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "#define nl                  '\\n'",
+      "#define F                   first",
+      "#define S                   second",
+      "#define ll                  long long",
+      "#define pb                  push_back",
+      "#define MOD                 1000000007",
+      "#define gcd(x,y)            __gcd(x,y)",
+      "#define lcm(x,y)            y*x/__gcd(x,y)",
+      "#define all(a)              (a.begin()),(a.end())",
+      "#define SUM(a)              accumulate(all(a),0LL);",
+      "#define ms(a,b)             memset(a, b, sizeof(a))",
+      "#define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())",
+      "#define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))",
+      "",
+      "const double PI = acos(-1);",
+      "",
+      "void Solve(int tc) {",
+      "    $1",
+      "}",
+      "",
+      "int32_t main() {",
+      "    ios::sync_with_stdio(0);",
+      "    cin.tie(0);",
+      "    ",
+      "    int t, T = 1;",
+      "    cin >> T;",
+      "    for(t = 1; t <= T; t++)",
+      "        Solve(t);",
+      "    ",
+      "    return 0;",
+      "}"
+    ],
+    "description": "Template for problems with multiple test cases, includes case number"
+  },
+  "C++ Split Function": {
+    "prefix": "split",
+    "body": [
+      "vector<string> split(const string &str, const string &delimiter)",
+      "{",
+      "    vector<string> tokens;",
+      "    size_t start = 0, end, delimLength = delimiter.length();",
+      "   ",
+      "    while ((end = str.find(delimiter, start)) != string::npos)",
+      "    {",
+      "        tokens.push_back(str.substr(start, end - start));",
+      "        start = end + delimLength;",
+      "    }",
+      "    tokens.push_back(str.substr(start));",
+      "    return tokens;",
+      "   ",
+      "}"
+    ],
+    "description": "Function to split a string based on a given delimiter"
+  },
+  "C++ function to find lcm": {
+    "prefix": "lcm",
+    "body": ["ll lcm(ll a, ll b) {", "    return (a / __gcd(a, b)) * b;", "}"],
+    "description": "Efficient and overflow-safe LCM function for two long long numbers."
+  }
+}
