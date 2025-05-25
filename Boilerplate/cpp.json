@@ -8,6 +8,7 @@
       "#include <bits/stdc++.h>",
       "using namespace std;",
       "",
+      "#define sp                  ' '",
       "#define nl                  '\\n'",
       "#define F                   first",
       "#define S                   second",
