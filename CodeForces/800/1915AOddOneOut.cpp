@@ -12,35 +12,18 @@ using namespace std;
 #define MOD                 1000000007
 #define gcd(x,y)            __gcd(x,y)
 #define lcm(x,y)            y*x/__gcd(x,y)
-#define no                  cout << "NO" << nl
-#define yes                 cout << "YES" << nl
 #define all(a)              (a.begin()),(a.end())
 #define SUM(a)              accumulate(all(a),0LL);
 #define ms(a,b)             memset(a, b, sizeof(a))
 #define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
-#define print(v)            for(auto x : v) cout << x << " "; cout << nl
 #define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
 
 const double PI = acos(-1);
 
 void Solve(int tc) {
-    int n, k;
-    cin >> n >> k;
-
-    vector<int> a(n), sorted_a(n);
-    for(auto &it:a)
-        cin >> it;
-
-    sort(all(sorted_a));
-
-    if(is_sorted(all(a))) yes;
-    else{
-        if( k==1 ){
-            if( a==sorted_a ) yes;
-            else no;
-        }
-        else yes;
-    }
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << (a^b^c) << nl; // xor between 2 same number gives zero(0)
 }
 
 int32_t main() {
