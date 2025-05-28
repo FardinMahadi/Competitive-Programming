@@ -70,5 +70,20 @@
     "prefix": "lcm",
     "body": ["ll lcm(ll a, ll b) {", "    return (a / __gcd(a, b)) * b;", "}"],
     "description": "Efficient and overflow-safe LCM function for two long long numbers."
+  },
+  "C++ Boilerplate for tutorial": {
+    "prefix": "tutBoilerplate",
+    "body": [
+      "// In the name of Allah, the Most Gracious, the Most Merciful",
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "int32_t main() {",
+      "    $1",
+      "    ",
+      "    return 0;",
+      "}"
+    ],
+    "description": "Template for problems with multiple test cases, includes case number"
   }
 }
