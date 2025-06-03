@@ -24,39 +24,19 @@ using namespace std;
 
 const double PI = acos(-1);
 
-void Solve(int tc) {
-    int n, x, y;
-    vector<int> a(n);
-    for( auto &it : v )
-        cin >> it;
+void Solve() {
+    int a, b, c;
+    cin >> a >> b >> c;
 
-    ll sum = SUM(a);
-    sort(all(a));
-
-    int i = 0, j = n-1;
-    while ( i<= n ){
-        ll cal = sum - a[i] - a[i+1];
-        if( cal > x ) break;
-        i++;
-    }
-
-    while ( j<=n ){
-        ll cal = sum - a[j] - a[j+1];
-        if( cal < y ) break;
-        j--;
-    }
-
-    
+    ll res = max(a+(b*c), max(a*(b+c), max(a*b*c, max((a+b)*c, a+b+c))));
+    cout << res << nl;
 }
 
 int32_t main() {
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(0);cout.tie(0);
     
-    int t, T = 1;
-    cin >> T;
-    for(t = 1; t <= T; t++)
-        Solve(t);
+    Solve();
     
     return 0;
 }

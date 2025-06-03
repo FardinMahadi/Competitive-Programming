@@ -25,33 +25,18 @@ using namespace std;
 const double PI = acos(-1);
 
 void Solve(int tc) {
-    int n, x, y;
-    vector<int> a(n);
-    for( auto &it : v )
-        cin >> it;
-
-    ll sum = SUM(a);
-    sort(all(a));
-
-    int i = 0, j = n-1;
-    while ( i<= n ){
-        ll cal = sum - a[i] - a[i+1];
-        if( cal > x ) break;
-        i++;
-    }
-
-    while ( j<=n ){
-        ll cal = sum - a[j] - a[j+1];
-        if( cal < y ) break;
-        j--;
-    }
-
-    
+    ll n;
+    cin >> n;
+    ll k = n/2;
+    if( n%2 ) {
+        cout << k*(k+1)+1 << nl;
+        return;
+    } else cout << k*k+1 << nl;
 }
 
 int32_t main() {
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(0);cout.tie(0);
     
     int t, T = 1;
     cin >> T;
