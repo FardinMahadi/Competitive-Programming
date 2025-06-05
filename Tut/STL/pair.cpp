@@ -1,9 +1,7 @@
 // In the name of Allah, the Most Gracious, the Most Merciful
+// C: FardinMahadi
+
 #include <bits/stdc++.h>
-
-using ll = long long;
-using ull = unsigned long long;
-
 using namespace std;
 
 int main()
