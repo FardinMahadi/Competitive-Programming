@@ -1,6 +1,14 @@
 // In the name of Allah, the Most Gracious, the Most Merciful
 // C: FardinMahadi
 
+/*
+    ______  __      __  ______  ____
+   / ____/ /  \    / / / |_) ) /   |
+  / /___  / /\ \  / / / /--<  /_/| |
+ / ____/ / /  \ \/ / / /_)  )   _| |_
+/_/     /_/    \__/ /_/____/   |_____|
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,45 +32,22 @@ using namespace std;
 
 const double PI = acos(-1);
 
-long long calcLessThanX(vector<long long>& a, long long x) {
-    long long n = a.size();
-    long long s = 0;
-    for (long long num : a) s += num;
+void Solve(int tc) {
+    ll n, a, b;
+    cin >> n >> a >> b;
 
-    long long j = 0;
-    long long ans = 0;
-
-    for (long long i = n - 1; i >= 0; i--) {
-        while (j < n && s - a[i] - a[j] >= x) {
-            j++;
-        }
-        ans += (n - j);
+    if (b <= a) 
+        cout << n * a << endl;
+    else {
+        long long k = min(b - a + 1, n);
+        cout << (b - k + 1) * n + k * (k - 1) / 2 << endl; 
     }
 
-    for (long long i = 0; i < n; i++) 
-        if (s - a[i] - a[i] < x) 
-            ans--;
-
-    return ans / 2;
-}
-
-
-void Solve(int tc) {
-    long long n, x, y;
-    cin >> n >> x >> y;
-
-    vector<long long> a(n);
-    for (auto &it : a) cin >> it;
-
-    sort(a.begin(), a.end());
-
-    long long result = calcLessThanX(a, y + 1) - calcLessThanX(a, x);
-    cout << result << nl;
 }
 
 int32_t main() {
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(0);cout.tie(0);
     
     int t, T = 1;
     cin >> T;

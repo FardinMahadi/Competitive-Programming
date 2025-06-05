@@ -1,6 +1,14 @@
 // In the name of Allah, the Most Gracious, the Most Merciful
 // C: FardinMahadi
 
+/*
+    ______  __      __  ______  ____
+   / ____/ /  \    / / / |_) ) /   |
+  / /___  / /\ \  / / / /--<  /_/| |
+ / ____/ / /  \ \/ / / /_)  )   _| |_
+/_/     /_/    \__/ /_/____/   |_____|
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,45 +32,27 @@ using namespace std;
 
 const double PI = acos(-1);
 
-long long calcLessThanX(vector<long long>& a, long long x) {
-    long long n = a.size();
-    long long s = 0;
-    for (long long num : a) s += num;
-
-    long long j = 0;
-    long long ans = 0;
-
-    for (long long i = n - 1; i >= 0; i--) {
-        while (j < n && s - a[i] - a[j] >= x) {
-            j++;
-        }
-        ans += (n - j);
-    }
-
-    for (long long i = 0; i < n; i++) 
-        if (s - a[i] - a[i] < x) 
-            ans--;
-
-    return ans / 2;
-}
-
-
 void Solve(int tc) {
-    long long n, x, y;
-    cin >> n >> x >> y;
+    int n;
+    cin >> n;
+    vector<string> s(2);
+    for (auto& x : s) cin >> x;
 
-    vector<long long> a(n);
-    for (auto &it : a) cin >> it;
-
-    sort(a.begin(), a.end());
-
-    long long result = calcLessThanX(a, y + 1) - calcLessThanX(a, x);
-    cout << result << nl;
+    int ans = 0;
+    for ( int i = 1; i < n - 1; ++i ){
+        bool ok = true;
+        ok &= (s[0][i] == '.' && s[1][i] == '.');
+        ok &= (s[0][i - 1] != s[1][i - 1]);
+        ok &= (s[0][i + 1] != s[1][i + 1]);
+        ok &= (s[0][i - 1] == s[0][i + 1]);
+        ans += ok;
+    }
+    cout << ans << nl;
 }
 
 int32_t main() {
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(0);cout.tie(0);
     
     int t, T = 1;
     cin >> T;
