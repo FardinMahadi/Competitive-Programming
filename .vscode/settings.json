@@ -72,9 +72,7 @@
     "math.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled",
-  "cSpell.ignoreWords": [
-    "abcccabaaabb"
-  ],
+  "cSpell.ignoreWords": ["abcccabaaabb"],
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
@@ -120,10 +118,7 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
+  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -137,5 +132,10 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "workbench.colorCustomizations": {
+    "minimap.background": "#00000000",
+    "scrollbar.shadow": "#00000000"
+  },
+  "editor.formatOnSave": false
 }
