@@ -1,5 +1,3 @@
-// TODO https://codeforces.com/contest/1692/problem/E need to complete this problem
-
 // In the name of Allah, the Most Gracious, the Most Merciful
 // C: FardinMahadi
 
@@ -31,40 +29,21 @@ using namespace std;
 
 const double PI = acos(-1);
 
-ll query(int l, int r, vector<ll>& p) {
-    return p[r] - (l ? p[l - 1] : 0);
-}
-
 void Solve(int tc) {
     int n, s;
     cin >> n >> s;
 
-    vector<ll> a(n), p(n);
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) cin >> a[i];
 
-    ll sum = 0;
-    for( int i = 0; i < n; ++i ){
-        cin >> a[i];
-        p[i] = a[i];
-        if (i) p[i] += p[i - 1];
+    int maxLen = -1, sum = 0;
+    for (int l = 0, r = 0; r < n; ++r) {
+        sum += a[r];
+        while (sum > s) sum -= a[l++];
+        if (sum == s) maxLen = max(maxLen, r - l + 1);
     }
-
-    int ans = INT_MAX;
-
-    for(int i = 0; i < n; ++i) {
-        int l = i, r = n - 1, pos = -1;
-        while(l <= r) {
-            int mid = l + r >> 1;
-            if(query(i, mid, p) <= s) {
-                pos = mid;
-                l = mid + 1;
-            } else r = mid - 1;
-        }
-        if(pos == -1 || query(i, pos, p) != s) continue;
-        ans = min(ans, n - (pos - i + 1));
-    }
-
-    cout << (ans == INT_MAX ? -1 : ans) << nl;
-
+    
+    cout << (maxLen == -1? maxLen : n - maxLen) << nl;
 }
 
 int32_t main() {
