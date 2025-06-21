@@ -8,13 +8,7 @@
 /_/     /_/    \__/ /_/____/   |_____| */
 
 #include <bits/stdc++.h>
-#include <ext/pb_ds/tree_policy.hpp>
-#include <ext/pb_ds/assoc_container.hpp>
-
 using namespace std;
-using namespace __gnu_pbds;
-
-template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 #define sp                  ' '
 #define nl                  '\n'
@@ -34,7 +28,24 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 
 const double PI = acos(-1);
 
+int f(int x, int y) {
+    if (x > y) return 1;
+    if (x == y) return 0;
+    return -1;
+}
+
 void Solve(int tc) {
+    vector<int> a(2), b(2); cin >> a[0] >> a[1] >> b[0] >> b[1];
+    int res = 0;
+
+    if(f(a[0], b[0]) + f(a[1], b[1]) > 0) res++;
+    if(f(a[0], b[1]) + f(a[1], b[0]) > 0) res++;
+    if(f(a[1], b[0]) + f(a[0], b[1]) > 0) res++;
+    if(f(a[1], b[1]) + f(a[0], b[0]) > 0) res++;
+
+    cout << res << nl;
+    
+
     
 }
 
