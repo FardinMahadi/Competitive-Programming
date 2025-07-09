@@ -37,6 +37,8 @@
             "#define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))",
             "",
             "const double PI = acos(-1);",
+            "const int N = 100 + 10;",
+            "int n, m, a[N][N];",
             "",
             "void Solve(int tc) {",
             "    $1",
@@ -128,5 +130,26 @@
             "}"
         ],
         "description": "Implementation of Merge Sort algorithm for vectors"
+    },
+    "C++ Grid Traversal Helper": {
+        "prefix": "gridHelper",
+        "body": [
+            "int dx[] = {-1, 0, +1, 0};",
+            "int dy[] = {0, -1, 0, +1};",
+            "",
+            "inline bool in(int i, int j) {",
+            "    return (0 <= i && i < n && 0 <= j && j < m);",
+            "}"
+        ],
+        "description": "Helper functions for grid/matrix traversal with direction arrays and boundary checking"
+    },
+    "C++ function to find gcd": {
+        "prefix": "gcd",
+        "body": [
+            "ll gcd(ll a, ll b) {",
+            "    return b == 0 ? a : gcd(b, a % b);",
+            "}"
+        ],
+        "description": "Recursive GCD function for two long long numbers."
     }
 }
