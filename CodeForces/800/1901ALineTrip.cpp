@@ -34,27 +34,22 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 
 const double PI = acos(-1);
 const int N = 100 + 10;
-int n, m, a[N][N];
+int n, m, a[N];
 
 void Solve(int tc) {
-    int n; cin >> n;
+    cin >> n >> m;
+    a[0] = 0;
+    int ans = 0;
 
-    vector<int> a(n);
-    for(auto &it : a) cin >> it;
+    for (int i = 1; i <= n; i++) 
+        cin >> a[i];
 
-    vector<ll int> layers;
-    for (int i = 0; i <= 100; i++) 
-        layers.push_back(1 + 8 * i * (i + 1) / 2);
+    for (int i = 1; i <= n; i++)
+        ans = max(ans, a[i] - a[i - 1]);
 
-    ll sum = 0;
-    int happyDays = 0;
-    for (int i = 0, curLayer = 0; i < n; ++i) {
-        sum += a[i];
-        while (curLayer + 1 < layers.size() && sum > layers[curLayer]) curLayer++;
-        if (sum == layers[curLayer]) happyDays++;
-    }
+    ans = max(ans, 2 * (m - a[n]));
 
-    cout << happyDays << nl;
+    cout << ans << nl;
 }
 
 int32_t main() {

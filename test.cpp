@@ -37,24 +37,7 @@ const int N = 100 + 10;
 int n, m, a[N][N];
 
 void Solve(int tc) {
-    int n; cin >> n;
-
-    vector<int> a(n);
-    for(auto &it : a) cin >> it;
-
-    vector<ll int> layers;
-    for (int i = 0; i <= 100; i++) 
-        layers.push_back(1 + 8 * i * (i + 1) / 2);
-
-    ll sum = 0;
-    int happyDays = 0;
-    for (int i = 0, curLayer = 0; i < n; ++i) {
-        sum += a[i];
-        while (curLayer + 1 < layers.size() && sum > layers[curLayer]) curLayer++;
-        if (sum == layers[curLayer]) happyDays++;
-    }
-
-    cout << happyDays << nl;
+    
 }
 
 int32_t main() {

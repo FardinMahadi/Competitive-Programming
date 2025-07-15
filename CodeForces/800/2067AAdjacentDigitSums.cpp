@@ -24,8 +24,8 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 #define pb                  push_back
 #define gcd(x,y)            __gcd(x,y)
 #define lcm(x,y)            y*x/__gcd(x,y)
-#define no                  cout << "NO" << nl
-#define yes                 cout << "YES" << nl
+#define no                  cout << "No" << nl
+#define yes                 cout << "Yes" << nl
 #define all(a)              (a.begin()),(a.end())
 #define SUM(a)              accumulate(all(a),0LL)
 #define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
@@ -37,24 +37,10 @@ const int N = 100 + 10;
 int n, m, a[N][N];
 
 void Solve(int tc) {
-    int n; cin >> n;
-
-    vector<int> a(n);
-    for(auto &it : a) cin >> it;
-
-    vector<ll int> layers;
-    for (int i = 0; i <= 100; i++) 
-        layers.push_back(1 + 8 * i * (i + 1) / 2);
-
-    ll sum = 0;
-    int happyDays = 0;
-    for (int i = 0, curLayer = 0; i < n; ++i) {
-        sum += a[i];
-        while (curLayer + 1 < layers.size() && sum > layers[curLayer]) curLayer++;
-        if (sum == layers[curLayer]) happyDays++;
-    }
-
-    cout << happyDays << nl;
+    cin >> m >> n;
+    
+    if (m + 1 >= n && (m + 1 - n) % 9 == 0) yes;
+    else no;
 }
 
 int32_t main() {
