@@ -1,52 +1,55 @@
 // In the name of Allah, the Most Gracious, the Most Merciful
 // C: FardinMahadi
 
-/*  ______  __      __  ______  ____
-   / ____/ /  \    / / / |_) ) /   |
-  / /___  / /\ \  / / / /--<  /_/| |
- / ____/ / /  \ \/ / / /_)  )   _| |_
-/_/     /_/    \__/ /_/____/   |_____| */
-
 #include <bits/stdc++.h>
-#include <ext/pb_ds/tree_policy.hpp>
-#include <ext/pb_ds/assoc_container.hpp>
-
 using namespace std;
-using namespace __gnu_pbds;
 
-template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+long long a[N], t[4*N];
+int rangeStart, rangeEnd;
 
-#define sp                  ' '
-#define nl                  '\n'
-#define F                   first
-#define S                   second
-#define ll                  long long
-#define pb                  push_back
-#define gcd(x,y)            __gcd(x,y)
-#define lcm(x,y)            y*x/__gcd(x,y)
-#define no                  cout << "NO" << nl
-#define yes                 cout << "YES" << nl
-#define all(a)              (a.begin()),(a.end())
-#define SUM(a)              accumulate(all(a),0LL)
-#define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
-#define print(v)            for(auto x : v) cout << x << " "; cout << nl
-#define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
+void build(int idx, int l, int r) {
+    if (l == r) {
+        t[idx] = a[l];
+        return;
+    }
 
-const double PI = acos(-1);
-const int N = 100 + 10;
-int n, m, a[N][N];
-
-void Solve(int tc) {
+    int mid = (l + r) / 2;
+    int left = 2 * idx;
+    int right = 2 * idx + 1;
     
+    build(left, l, mid);
+    build(right, mid + 1, r);
+
+    t[idx] = min(t[left], t[right]);
 }
 
-int32_t main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);cout.tie(0);
-    
-    int t = 1;
-    cin >> t;
-    for (int tc = 1; tc <= t; tc++) Solve(tc);
+int query(int idx, int l, int r) {
+    // query(rootIdx, leftVal, rightVal)
+    if (rangeStart <= l && r <= rangeEnd) return t[idx];
+    if (r < i || l > j) return INT_MAX;     
+
+    int mid = (l + r) / 2;
+    int left = 2 * idx;
+    int right = 2 * idx + 1;
+
+    long long leftMin = query(left, l, mid);
+    long long rightMin = query(right, mid + 1, r);
+
+    return min(leftMin, rightMin);
+}
+
+int main() {
+    int n, q; cin >> n >> q;
+
+    for (int i = 1; i <= n; i++) cin >> a[i];
+
+    build(1, 1, n);
+
+    while (q--) {
+        cin >> rangeStart >> rangeEnd;
+        cout << query(1, 1, n) << endl;
+    }
     
     return 0;
 }
