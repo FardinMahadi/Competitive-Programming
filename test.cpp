@@ -5,8 +5,7 @@
 using namespace std;
 
 const int N = 1e5 + 7;
-long long a[N], t[4*N];
-int rangeStart, rangeEnd;
+long long a[N], t[4 * N];
 
 void build(int idx, int l, int r) {
     if (l == r) {
@@ -15,41 +14,36 @@ void build(int idx, int l, int r) {
     }
 
     int mid = (l + r) / 2;
-    int left = 2 * idx;
-    int right = 2 * idx + 1;
-    
-    build(left, l, mid);
-    build(right, mid + 1, r);
+    build(2 * idx, l, mid);
+    build(2 * idx + 1, mid + 1, r);
 
-    t[idx] = min(t[left], t[right]);
+    t[idx] = min(t[2 * idx], t[2 * idx + 1]);
 }
 
-int query(int idx, int l, int r) {
-    // query(rootIdx, leftVal, rightVal)
-    if (rangeStart <= l && r <= rangeEnd) return t[idx];
-    if (r < i || l > j) return INT_MAX;     
+long long query(int idx, int l, int r, int qs, int qe) {
+    if (qs <= l && r <= qe) return t[idx];
+    if (r < qs || l > qe) return LLONG_MAX;
 
     int mid = (l + r) / 2;
-    int left = 2 * idx;
-    int right = 2 * idx + 1;
-
-    long long leftMin = query(left, l, mid);
-    long long rightMin = query(right, mid + 1, r);
+    long long leftMin = query(2 * idx, l, mid, qs, qe);
+    long long rightMin = query(2 * idx + 1, mid + 1, r, qs, qe);
 
     return min(leftMin, rightMin);
 }
 
-int main() {
-    int n, q; cin >> n >> q;
+int32_t main() {
+    int n, q;
+    cin >> n >> q;
 
     for (int i = 1; i <= n; i++) cin >> a[i];
 
     build(1, 1, n);
 
     while (q--) {
-        cin >> rangeStart >> rangeEnd;
-        cout << query(1, 1, n) << endl;
+        int l, r;
+        cin >> l >> r;
+        cout << query(1, 1, n, l, r) << endl;
     }
-    
+
     return 0;
 }

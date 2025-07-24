@@ -28,21 +28,24 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 #define yes                 cout << "YES" << nl
 #define all(a)              (a.begin()),(a.end())
 #define SUM(a)              accumulate(all(a),0LL)
+#define cinv(v)             for(auto &i : v) cin >> i
+#define coutv(v)            for(auto &i : v) cout << i << sp
+#define fixpoint(x)         cout << fixed << setprecision(x)
 #define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
 #define print(v)            for(auto x : v) cout << x << " "; cout << nl
 #define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
 
 const double PI = acos(-1);
-const int N = 100 + 10;
-int n, m, a[N][N];
+const int N = 1e5 + 5;
+int n, m;
 
 void Solve(int tc) {
-    int n, k;cin >> n >> k;
+    int n, k; cin >> n >> k;
 
     vector<int> a(n);
     for (auto &it : a) cin >> it;
 
-    int cnt = 0;
+    int ans = 0;
     for (int i = 0; i <= n - k; ) {
         bool canHike = true;
 
@@ -54,12 +57,12 @@ void Solve(int tc) {
         }
 
         if (canHike) {
-            cnt++;
+            ans++;
             i += k + 1;
         } else i++;
     }
 
-        cout << cnt << nl;
+    cout << ans << nl;
 }
 
 int main() {
