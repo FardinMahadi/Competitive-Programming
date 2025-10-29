@@ -41,7 +41,7 @@
             "",
             "const double PI = acos(-1);",
             "const int N = 1e5 + 5;",
-            "int n, m, a[N][N];",
+            "int n, m;",
             "",
             "void Solve(int tc) {",
             "    $1",

@@ -11,8 +11,8 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/pb_ds/assoc_container.hpp>
 
-using namespace std;
 using namespace __gnu_pbds;
+using namespace std;
 
 template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
@@ -28,36 +28,42 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 #define yes                 cout << "YES" << nl
 #define all(a)              (a.begin()),(a.end())
 #define SUM(a)              accumulate(all(a),0LL)
+#define cinv(v)             for(auto &i : v) cin >> i
+#define coutv(v)            for(auto &i : v) cout << i << sp
+#define fixedpoint(x)       cout << fixed << setprecision(x)
 #define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
 #define print(v)            for(auto x : v) cout << x << " "; cout << nl
 #define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
 
 const double PI = acos(-1);
+const int N = 1e5 + 5;
+int n, k;
 
-void Solve() {
-    int n; cin >> n;
+void Solve(int tc) {
+    cin >> n >> k;
+    string s; cin >> s;
 
-    vector<string> str(n);
-    for (auto &it : str) cin >> it;
+    map<char, int> fq;
+    int len = s.length();
+    for (int i = 0; i < len; i++) 
+        if (fq.find(s[i]) == fq.end()) fq[s[i]] = 1;
+        else fq[s[i]]++;
+    
+    int oddCnt = 0;
+    for (auto &ch : fq)
+        if (ch.second % 2 == 1) oddCnt++;
 
-    unordered_map<string, int> count;
-
-    for (int i = 0; i < n; ++i) {
-        if (count.find(str[i]) == count.end()) {
-            cout << "OK" << nl;
-            count[str[i]] = 1;
-        } else {
-            cout << str[i] << count[str[i]] << nl;
-            count[str[i]]++;
-        }
-    }
+    if (oddCnt > k + 1) no;
+    else yes;
 }
 
-int32_t main() {
+int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
     
-    Solve();
+    int t = 1;
+    cin >> t;
+    for (int tc = 1; tc <= t; tc++) Solve(tc);
     
     return 0;
 }

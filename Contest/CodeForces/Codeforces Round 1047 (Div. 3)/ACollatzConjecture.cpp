@@ -11,8 +11,8 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/pb_ds/assoc_container.hpp>
 
-using namespace std;
 using namespace __gnu_pbds;
+using namespace std;
 
 template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
@@ -28,36 +28,34 @@ template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag
 #define yes                 cout << "YES" << nl
 #define all(a)              (a.begin()),(a.end())
 #define SUM(a)              accumulate(all(a),0LL)
+#define cinv(v)             for(auto &i : v) cin >> i
+#define coutv(v)            for(auto &i : v) cout << i << sp
+#define fixedpoint(x)       cout << fixed << setprecision(x)
 #define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
 #define print(v)            for(auto x : v) cout << x << " "; cout << nl
 #define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
 
 const double PI = acos(-1);
+const int N = 1e5 + 5;
+int n, m;
 
-void Solve() {
-    int n; cin >> n;
+void Solve(int tc) {
+    float k, x; cin >> k >> x;
+    
+    for (int i = 0; i < k; i++) 
+        if ((float)(x - 1) % 3 == 0) x = (float)(x - 1) / 3;
+        else x = x * 2;
 
-    vector<string> str(n);
-    for (auto &it : str) cin >> it;
-
-    unordered_map<string, int> count;
-
-    for (int i = 0; i < n; ++i) {
-        if (count.find(str[i]) == count.end()) {
-            cout << "OK" << nl;
-            count[str[i]] = 1;
-        } else {
-            cout << str[i] << count[str[i]] << nl;
-            count[str[i]]++;
-        }
-    }
+    cout << x << nl;
 }
 
-int32_t main() {
+int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
     
-    Solve();
+    int t = 1;
+    cin >> t;
+    for (int tc = 1; tc <= t; tc++) Solve(tc);
     
     return 0;
 }
