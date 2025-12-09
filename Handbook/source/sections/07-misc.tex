@@ -1,0 +1,100 @@
+\section{Miscellaneous Utilities}
+
+\subsection{Grid Helpers}
+\begin{lstlisting}
+// 4-direction movement
+int dx4[] = {-1, 0, +1, 0};
+int dy4[] = {0, -1, 0, +1};
+
+// 8-direction movement (including diagonals)
+int dx8[] = {-1, -1, -1, 0, 0, +1, +1, +1};
+int dy8[] = {-1, 0, +1, -1, +1, -1, 0, +1};
+
+// Boundary check
+inline bool in(int i, int j) {
+    return (0 <= i && i < n && 0 <= j && j < m);
+}
+
+// Grid traversal helper
+void traverseGrid(int i, int j) {
+    for (int k = 0; k < 4; k++) {  // Change to 8 for diagonal
+        int ni = i + dx4[k];
+        int nj = j + dy4[k];
+        if (in(ni, nj)) {
+            // Process cell (ni, nj)
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Coordinate Compression}
+\begin{lstlisting}
+// Coordinate compression
+vector<int> compress(vector<int> &arr) {
+    vector<int> sorted = arr;
+    sort(all(sorted));
+    sorted.erase(unique(all(sorted)), sorted.end());
+
+    vector<int> compressed;
+    for (int x : arr) {
+        int idx = lower_bound(all(sorted), x) - sorted.begin();
+        compressed.pb(idx);
+    }
+    return compressed;
+}
+\end{lstlisting}
+
+\subsection{Timing Utilities}
+\begin{lstlisting}
+#include <chrono>
+using namespace std::chrono;
+
+auto start_time = high_resolution_clock::now();
+// Your code here
+auto end_time = high_resolution_clock::now();
+auto duration = duration_cast<microseconds>(end_time - start_time);
+cout << "Time: " << duration.count() << " microseconds" << endl;
+\end{lstlisting}
+
+\subsection{Merge Sort with Inversion Count}
+\begin{lstlisting}
+ll inversionCount = 0;
+
+void merge(vector<int>& arr, int low, int mid, int high) {
+    vector<int> temp(high - low + 1);
+    int i = low, j = mid + 1, k = 0;
+    while (i <= mid && j <= high) {
+        if (arr[i] <= arr[j]) temp[k++] = arr[i++];
+        else {
+            temp[k++] = arr[j++];
+            inversionCount += (mid - i + 1);  // Count inversions
+        }
+    }
+    while (i <= mid) temp[k++] = arr[i++];
+    while (j <= high) temp[k++] = arr[j++];
+    for (int idx = 0; idx < temp.size(); idx++) {
+        arr[low + idx] = temp[idx];
+    }
+}
+
+void mergeSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int mid = low + (high - low) / 2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
+    }
+}
+\end{lstlisting}
+
+\subsection{Useful Constants and Macros}
+\begin{lstlisting}
+const double PI = acos(-1);
+const int INF = 1e9 + 7;
+const ll LINF = 1e18 + 7;
+const int MOD = 1e9 + 7;
+const int N = 1e5 + 5;
+
+// Common macros already in boilerplate:
+// sp, nl, F, S, ll, pb, popb, gcd, lcm, all, SUM, etc.
+\end{lstlisting}

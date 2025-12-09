@@ -1,0 +1,117 @@
+\section{String Algorithms}
+
+\subsection{KMP Algorithm}
+\begin{lstlisting}
+// KMP Algorithm for pattern matching
+vector<int> buildLPS(string pattern) {
+    int m = pattern.length();
+    vector<int> lps(m, 0);
+    int len = 0, i = 1;
+
+    while (i < m) {
+        if (pattern[i] == pattern[len]) {
+            len++;
+            lps[i] = len;
+            i++;
+        } else {
+            if (len != 0) len = lps[len-1];
+            else { lps[i] = 0; i++; }
+        }
+    }
+    return lps;
+}
+
+vector<int> kmpSearch(string text, string pattern) {
+    vector<int> lps = buildLPS(pattern);
+    vector<int> matches;
+    int n = text.length(), m = pattern.length();
+    int i = 0, j = 0;
+
+    while (i < n) {
+        if (text[i] == pattern[j]) { i++; j++; }
+        if (j == m) {
+            matches.pb(i - j);
+            j = lps[j-1];
+        } else if (i < n && text[i] != pattern[j]) {
+            if (j != 0) j = lps[j-1];
+            else i++;
+        }
+    }
+    return matches;
+}
+\end{lstlisting}
+
+\subsection{Z-Algorithm}
+\begin{lstlisting}
+// Z-Algorithm for string preprocessing
+vector<int> buildZ(string s) {
+    int n = s.length();
+    vector<int> z(n, 0);
+    int l = 0, r = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (i <= r) z[i] = min(r - i + 1, z[i - l]);
+        while (i + z[i] < n && s[z[i]] == s[i + z[i]]) z[i]++;
+        if (i + z[i] - 1 > r) {
+            l = i;
+            r = i + z[i] - 1;
+        }
+    }
+    return z;
+}
+
+// Find all occurrences of pattern in text
+vector<int> zSearch(string text, string pattern) {
+    string combined = pattern + "$" + text;
+    vector<int> z = buildZ(combined);
+    vector<int> matches;
+    int m = pattern.length();
+    for (int i = m + 1; i < combined.length(); i++) {
+        if (z[i] == m) matches.pb(i - m - 1);
+    }
+    return matches;
+}
+\end{lstlisting}
+
+\subsection{String Utilities}
+\begin{lstlisting}
+// String reverse
+string reverseStr(string s) {
+    reverse(all(s));
+    return s;
+}
+
+// Check if string is palindrome
+bool isPalindrome(string s) {
+    int n = s.length();
+    for (int i = 0; i < n/2; i++) {
+        if (s[i] != s[n-1-i]) return false;
+    }
+    return true;
+}
+
+// Convert string to lowercase
+string toLower(string s) {
+    transform(all(s), s.begin(), ::tolower);
+    return s;
+}
+
+// Convert string to uppercase
+string toUpper(string s) {
+    transform(all(s), s.begin(), ::toupper);
+    return s;
+}
+
+// Split string by delimiter
+vector<string> split(const string &str, const string &delimiter) {
+    vector<string> tokens;
+    size_t start = 0, end, delimLength = delimiter.length();
+
+    while ((end = str.find(delimiter, start)) != string::npos) {
+        tokens.push_back(str.substr(start, end - start));
+        start = end + delimLength;
+    }
+    tokens.push_back(str.substr(start));
+    return tokens;
+}
+\end{lstlisting}

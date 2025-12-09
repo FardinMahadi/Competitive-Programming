@@ -1,0 +1,233 @@
+\section{Graph Algorithms}
+
+\subsection{Graph Representation}
+\begin{lstlisting}
+// Graph representation - Adjacency list
+vector<vector<int>> adj(N);  // Unweighted
+vector<vector<pair<int, int>>> adjWeighted(N);  // Weighted: {node, weight}
+
+// For directed graph, add edge once
+// For undirected graph, add edge twice
+void addEdge(int u, int v) {
+    adj[u].pb(v);
+    // adj[v].pb(u);  // Uncomment for undirected
+}
+
+void addWeightedEdge(int u, int v, int w) {
+    adjWeighted[u].pb({v, w});
+    // adjWeighted[v].pb({u, w});  // Uncomment for undirected
+}
+\end{lstlisting}
+
+\subsection{DFS (Depth First Search)}
+\begin{lstlisting}
+// DFS - Depth First Search
+vector<bool> visited(N, false);
+
+void dfs(int u) {
+    visited[u] = true;
+    for (int v : adj[u]) {
+        if (!visited[v]) {
+            dfs(v);
+        }
+    }
+}
+
+// DFS with parent tracking
+void dfs(int u, int parent) {
+    for (int v : adj[u]) {
+        if (v != parent) {
+            dfs(v, u);
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{BFS (Breadth First Search)}
+\begin{lstlisting}
+// BFS - Breadth First Search
+vector<bool> visited(N, false);
+vector<int> dist(N, -1);
+
+void bfs(int start) {
+    queue<int> q;
+    q.push(start);
+    visited[start] = true;
+    dist[start] = 0;
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        for (int v : adj[u]) {
+            if (!visited[v]) {
+                visited[v] = true;
+                dist[v] = dist[u] + 1;
+                q.push(v);
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Dijkstra's Algorithm}
+\begin{lstlisting}
+// Dijkstra's Algorithm - Single source shortest path
+vector<ll> dijkstra(int start, int n) {
+    vector<ll> dist(n+1, LINF);
+    dist[start] = 0;
+    priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> pq;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        ll d = pq.top().F;
+        int u = pq.top().S;
+        pq.pop();
+
+        if (d > dist[u]) continue;
+
+        for (auto [v, w] : adjWeighted[u]) {
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    return dist;
+}
+\end{lstlisting}
+
+\subsection{Floyd-Warshall}
+\begin{lstlisting}
+// Floyd-Warshall - All pairs shortest path
+vector<vector<ll>> floydWarshall(int n) {
+    vector<vector<ll>> dist(n+1, vector<ll>(n+1, LINF));
+
+    // Initialize distances
+    for (int i = 1; i <= n; i++) dist[i][i] = 0;
+    for (int u = 1; u <= n; u++) {
+        for (auto [v, w] : adjWeighted[u]) {
+            dist[u][v] = min(dist[u][v], (ll)w);
+        }
+    }
+
+    // Floyd-Warshall algorithm
+    for (int k = 1; k <= n; k++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (dist[i][k] != LINF && dist[k][j] != LINF) {
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+                }
+            }
+        }
+    }
+    return dist;
+}
+\end{lstlisting}
+
+\subsection{Topological Sort}
+\begin{lstlisting}
+// Topological Sort using DFS
+vector<bool> visited(N, false);
+vector<int> topoOrder;
+
+void dfsTopo(int u) {
+    visited[u] = true;
+    for (int v : adj[u]) {
+        if (!visited[v]) {
+            dfsTopo(v);
+        }
+    }
+    topoOrder.pb(u);
+}
+
+vector<int> topologicalSort(int n) {
+    topoOrder.clear();
+    fill(all(visited), false);
+    for (int i = 1; i <= n; i++) {
+        if (!visited[i]) dfsTopo(i);
+    }
+    reverse(all(topoOrder));
+    return topoOrder;
+}
+\end{lstlisting}
+
+\subsection{Cycle Detection}
+\begin{lstlisting}
+// Cycle detection in directed graph
+vector<int> color(N, 0);  // 0: white, 1: gray, 2: black
+
+bool hasCycle(int u) {
+    color[u] = 1;  // Gray
+    for (int v : adj[u]) {
+        if (color[v] == 1) return true;  // Back edge found
+        if (color[v] == 0 && hasCycle(v)) return true;
+    }
+    color[u] = 2;  // Black
+    return false;
+}
+
+// Cycle detection in undirected graph
+bool hasCycleUndirected(int u, int parent) {
+    visited[u] = true;
+    for (int v : adj[u]) {
+        if (!visited[v]) {
+            if (hasCycleUndirected(v, u)) return true;
+        } else if (v != parent) {
+            return true;
+        }
+    }
+    return false;
+}
+\end{lstlisting}
+
+\subsection{Strongly Connected Components (Kosaraju)}
+\begin{lstlisting}
+// Kosaraju's algorithm for Strongly Connected Components
+vector<bool> visited(N, false);
+vector<int> order, component;
+
+void dfs1(int u) {
+    visited[u] = true;
+    for (int v : adj[u]) {
+        if (!visited[v]) dfs1(v);
+    }
+    order.pb(u);
+}
+
+void dfs2(int u, vector<vector<int>> &adjRev) {
+    visited[u] = true;
+    component.pb(u);
+    for (int v : adjRev[u]) {
+        if (!visited[v]) dfs2(v, adjRev);
+    }
+}
+
+vector<vector<int>> findSCC(int n) {
+    // Build reverse graph
+    vector<vector<int>> adjRev(n+1);
+    for (int u = 1; u <= n; u++) {
+        for (int v : adj[u]) adjRev[v].pb(u);
+    }
+
+    // First DFS
+    fill(all(visited), false);
+    order.clear();
+    for (int i = 1; i <= n; i++) {
+        if (!visited[i]) dfs1(i);
+    }
+
+    // Second DFS on reverse graph
+    fill(all(visited), false);
+    vector<vector<int>> scc;
+    reverse(all(order));
+    for (int u : order) {
+        if (!visited[u]) {
+            component.clear();
+            dfs2(u, adjRev);
+            scc.pb(component);
+        }
+    }
+    return scc;
+}
+\end{lstlisting}

@@ -41,8 +41,8 @@ int n, m;
 
 void Solve(int tc) {
     float k, x; cin >> k >> x;
-    
-    for (int i = 0; i < k; i++) 
+
+    for (int i = 0; i < k; i++)
         if ((float)(x - 1) % 3 == 0) x = (float)(x - 1) / 3;
         else x = x * 2;
 
@@ -52,10 +52,10 @@ void Solve(int tc) {
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
-    
+
     int t = 1;
     cin >> t;
     for (int tc = 1; tc <= t; tc++) Solve(tc);
-    
+
     return 0;
 }

@@ -1,0 +1,133 @@
+\section{STL Containers and Utilities}
+
+\subsection{Vector}
+\begin{lstlisting}
+vector<int> v;
+v.push_back(5);           // Add element
+v.pop_back();             // Remove last element
+v.size();                 // Get size
+v.empty();                // Check if empty
+v.clear();                // Clear all elements
+sort(v.begin(), v.end()); // Sort
+reverse(v.begin(), v.end()); // Reverse
+v.resize(n, val);         // Resize with default value
+v.insert(v.begin() + i, val); // Insert at position
+v.erase(v.begin() + i);   // Erase at position
+auto it = find(v.begin(), v.end(), val); // Find element
+\end{lstlisting}
+
+\subsection{Map and Unordered Map}
+\begin{lstlisting}
+map<string, int> mp;
+mp["key"] = value;        // Insert/update
+mp.count("key");          // Check existence (0 or 1)
+mp.find("key");           // Returns iterator
+mp.erase("key");          // Erase by key
+mp.size();                // Number of elements
+for (auto [key, val] : mp) { } // Iterate
+
+unordered_map<string, int> ump; // Faster, no ordering
+\end{lstlisting}
+
+\subsection{Set and Unordered Set}
+\begin{lstlisting}
+set<int> s;
+s.insert(5);              // Insert
+s.erase(5);               // Erase
+s.count(5);               // Check existence
+s.find(5);                // Returns iterator
+s.lower_bound(5);         // First element >= 5
+s.upper_bound(5);         // First element > 5
+s.size();
+
+multiset<int> ms;         // Allows duplicates
+ms.erase(ms.find(5));    // Erase one occurrence
+ms.erase(5);              // Erase all occurrences
+
+unordered_set<int> us;    // Faster, no ordering
+\end{lstlisting}
+
+\subsection{Priority Queue}
+\begin{lstlisting}
+// Max heap (default)
+priority_queue<int> pq;
+pq.push(5);
+pq.top();                 // Get max element
+pq.pop();                 // Remove max element
+pq.size();
+pq.empty();
+
+// Min heap
+priority_queue<int, vector<int>, greater<int>> minpq;
+
+// Custom comparator
+auto cmp = [](int a, int b) { return a > b; };
+priority_queue<int, vector<int>, decltype(cmp)> custompq(cmp);
+\end{lstlisting}
+
+\subsection{Queue and Deque}
+\begin{lstlisting}
+queue<int> q;
+q.push(5);                // Add to back
+q.pop();                  // Remove from front
+q.front();                // Get front element
+q.back();                 // Get back element
+q.size();
+q.empty();
+
+deque<int> dq;
+dq.push_front(5);         // Add to front
+dq.push_back(5);          // Add to back
+dq.pop_front();           // Remove from front
+dq.pop_back();            // Remove from back
+dq.front();
+dq.back();
+\end{lstlisting}
+
+\subsection{Stack}
+\begin{lstlisting}
+stack<int> st;
+st.push(5);               // Add to top
+st.pop();                 // Remove from top
+st.top();                 // Get top element
+st.size();
+st.empty();
+\end{lstlisting}
+
+\subsection{Pair}
+\begin{lstlisting}
+pair<int, int> p = {1, 2};
+p.first;                  // Access first element
+p.second;                 // Access second element
+p = make_pair(3, 4);
+
+// Vector of pairs
+vector<pair<int, int>> vp;
+vp.push_back({1, 2});
+sort(vp.begin(), vp.end()); // Sorts by first, then second
+\end{lstlisting}
+
+\subsection{Common STL Algorithms}
+\begin{lstlisting}
+// Sorting
+sort(v.begin(), v.end());                    // Ascending
+sort(v.begin(), v.end(), greater<int>());    // Descending
+sort(v.begin(), v.end(), [](int a, int b) { return a > b; }); // Custom
+
+// Binary search (requires sorted container)
+binary_search(v.begin(), v.end(), val);      // Returns bool
+lower_bound(v.begin(), v.end(), val);        // First >= val
+upper_bound(v.begin(), v.end(), val);        // First > val
+
+// Other useful functions
+max(a, b); min(a, b);
+max_element(v.begin(), v.end());             // Returns iterator
+min_element(v.begin(), v.end());
+accumulate(v.begin(), v.end(), 0LL);         // Sum
+count(v.begin(), v.end(), val);              // Count occurrences
+find(v.begin(), v.end(), val);               // Find element
+reverse(v.begin(), v.end());                 // Reverse
+unique(v.begin(), v.end());                  // Remove consecutive duplicates
+next_permutation(v.begin(), v.end());        // Next permutation
+prev_permutation(v.begin(), v.end());        // Previous permutation
+\end{lstlisting}

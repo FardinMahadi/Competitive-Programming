@@ -1,0 +1,157 @@
+\section{Mathematical Algorithms}
+
+\subsection{GCD and LCM}
+\begin{lstlisting}
+// Recursive GCD
+ll gcd(ll a, ll b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+// Efficient and overflow-safe LCM function
+ll lcm(ll a, ll b) {
+    return (a / __gcd(a, b)) * b;
+}
+\end{lstlisting}
+
+\subsection{Extended Euclidean Algorithm}
+\begin{lstlisting}
+// Extended Euclidean Algorithm - returns gcd and coefficients
+ll extgcd(ll a, ll b, ll &x, ll &y) {
+    if (b == 0) {
+        x = 1, y = 0;
+        return a;
+    }
+    ll x1, y1;
+    ll g = extgcd(b, a % b, x1, y1);
+    x = y1;
+    y = x1 - (a / b) * y1;
+    return g;
+}
+
+// Modular inverse using extended Euclidean
+ll modInverse(ll a, ll m = MOD) {
+    ll x, y;
+    ll g = extgcd(a, m, x, y);
+    if (g != 1) return -1;  // No inverse exists
+    return (x % m + m) % m;
+}
+\end{lstlisting}
+
+\subsection{Modular Arithmetic}
+\begin{lstlisting}
+// Modular arithmetic operations
+ll modAdd(ll a, ll b, ll m = MOD) { return ((a % m) + (b % m)) % m; }
+ll modSub(ll a, ll b, ll m = MOD) { return ((a % m) - (b % m) + m) % m; }
+ll modMul(ll a, ll b, ll m = MOD) { return ((a % m) * (b % m)) % m; }
+ll modDiv(ll a, ll b, ll m = MOD) { return modMul(a, modInverse(b, m), m); }
+\end{lstlisting}
+
+\subsection{Sieve of Eratosthenes}
+\begin{lstlisting}
+// Sieve of Eratosthenes - Generate primes up to n
+vector<bool> isPrime(N, true);
+vector<int> primes;
+
+void sieve(int n) {
+    isPrime[0] = isPrime[1] = false;
+    for (int i = 2; i * i <= n; i++) {
+        if (isPrime[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                isPrime[j] = false;
+            }
+        }
+    }
+    for (int i = 2; i <= n; i++) {
+        if (isPrime[i]) primes.pb(i);
+    }
+}
+\end{lstlisting}
+
+\subsection{Prime Factorization}
+\begin{lstlisting}
+// Prime factorization
+vector<pair<ll, int>> factorize(ll n) {
+    vector<pair<ll, int>> factors;
+    for (ll i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            int cnt = 0;
+            while (n % i == 0) {
+                n /= i;
+                cnt++;
+            }
+            factors.pb({i, cnt});
+        }
+    }
+    if (n > 1) factors.pb({n, 1});
+    return factors;
+}
+\end{lstlisting}
+
+\subsection{Euler Totient Function}
+\begin{lstlisting}
+// Euler Totient Function using sieve
+vector<int> phi(N);
+
+void eulerTotient(int n) {
+    for (int i = 1; i <= n; i++) phi[i] = i;
+    for (int i = 2; i <= n; i++) {
+        if (phi[i] == i) {  // i is prime
+            for (int j = i; j <= n; j += i) {
+                phi[j] -= phi[j] / i;
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Combinatorics}
+\begin{lstlisting}
+// Factorial with mod
+vector<ll> fact(N);
+
+void precomputeFactorial(int n, ll m = MOD) {
+    fact[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        fact[i] = (fact[i-1] * i) % m;
+    }
+}
+
+// nCr with mod
+ll nCr(ll n, ll r, ll m = MOD) {
+    if (r > n || r < 0) return 0;
+    ll num = fact[n];
+    ll den = (fact[r] * fact[n-r]) % m;
+    return (num * modInverse(den, m)) % m;
+}
+\end{lstlisting}
+
+\subsection{Matrix Exponentiation}
+\begin{lstlisting}
+// Matrix multiplication
+vector<vector<ll>> matMul(vector<vector<ll>> &a, vector<vector<ll>> &b, ll m = MOD) {
+    int n = a.size();
+    vector<vector<ll>> res(n, vector<ll>(n, 0));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                res[i][j] = (res[i][j] + (a[i][k] * b[k][j]) % m) % m;
+            }
+        }
+    }
+    return res;
+}
+
+// Matrix exponentiation
+vector<vector<ll>> matPow(vector<vector<ll>> base, ll exp, ll m = MOD) {
+    int n = base.size();
+    vector<vector<ll>> res(n, vector<ll>(n, 0));
+    for (int i = 0; i < n; i++) res[i][i] = 1;  // Identity matrix
+
+    while (exp > 0) {
+        if (exp & 1) res = matMul(res, base, m);
+        base = matMul(base, base, m);
+        exp >>= 1;
+    }
+    return res;
+}
+\end{lstlisting}

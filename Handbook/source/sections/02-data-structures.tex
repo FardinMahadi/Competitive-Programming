@@ -1,0 +1,220 @@
+\section{Data Structures}
+
+\subsection{DSU (Disjoint Set Union)}
+\begin{lstlisting}
+// DSU with path compression and union by rank
+class DSU {
+private:
+    vector<int> parent, rank;
+public:
+    DSU(int n) {
+        parent.resize(n+1);
+        rank.resize(n+1, 0);
+        for (int i = 0; i <= n; i++) parent[i] = i;
+    }
+
+    int find(int x) {
+        if (parent[x] != x) parent[x] = find(parent[x]);
+        return parent[x];
+    }
+
+    void unite(int x, int y) {
+        x = find(x), y = find(y);
+        if (x == y) return;
+        if (rank[x] < rank[y]) swap(x, y);
+        parent[y] = x;
+        if (rank[x] == rank[y]) rank[x]++;
+    }
+
+    bool same(int x, int y) {
+        return find(x) == find(y);
+    }
+};
+\end{lstlisting}
+
+\subsection{Segment Tree}
+\begin{lstlisting}
+// Segment Tree for range queries and updates
+class SegmentTree {
+private:
+    vector<ll> tree;
+    int n;
+
+    void build(vector<ll> &arr, int node, int start, int end) {
+        if (start == end) {
+            tree[node] = arr[start];
+        } else {
+            int mid = (start + end) / 2;
+            build(arr, 2*node, start, mid);
+            build(arr, 2*node+1, mid+1, end);
+            tree[node] = tree[2*node] + tree[2*node+1];  // Change operation as needed
+        }
+    }
+
+    void update(int node, int start, int end, int idx, ll val) {
+        if (start == end) {
+            tree[node] = val;
+        } else {
+            int mid = (start + end) / 2;
+            if (idx <= mid) update(2*node, start, mid, idx, val);
+            else update(2*node+1, mid+1, end, idx, val);
+            tree[node] = tree[2*node] + tree[2*node+1];
+        }
+    }
+
+    ll query(int node, int start, int end, int l, int r) {
+        if (r < start || l > end) return 0;  // Change identity element as needed
+        if (l <= start && end <= r) return tree[node];
+        int mid = (start + end) / 2;
+        return query(2*node, start, mid, l, r) + query(2*node+1, mid+1, end, l, r);
+    }
+
+public:
+    SegmentTree(vector<ll> &arr) {
+        n = arr.size();
+        tree.resize(4*n);
+        build(arr, 1, 0, n-1);
+    }
+
+    void update(int idx, ll val) {
+        update(1, 0, n-1, idx, val);
+    }
+
+    ll query(int l, int r) {
+        return query(1, 0, n-1, l, r);
+    }
+};
+\end{lstlisting}
+
+\subsection{Fenwick Tree (BIT)}
+\begin{lstlisting}
+// Fenwick Tree (Binary Indexed Tree)
+class FenwickTree {
+private:
+    vector<ll> tree;
+    int n;
+
+public:
+    FenwickTree(int size) {
+        n = size;
+        tree.resize(n+1, 0);
+    }
+
+    void update(int idx, ll delta) {
+        for (; idx <= n; idx += idx & -idx) {
+            tree[idx] += delta;
+        }
+    }
+
+    ll query(int idx) {
+        ll sum = 0;
+        for (; idx > 0; idx -= idx & -idx) {
+            sum += tree[idx];
+        }
+        return sum;
+    }
+
+    ll rangeQuery(int l, int r) {
+        return query(r) - query(l-1);
+    }
+};
+\end{lstlisting}
+
+\subsection{Trie}
+\begin{lstlisting}
+// Trie (Prefix Tree)
+class Trie {
+private:
+    struct Node {
+        vector<Node*> children;
+        bool isEnd;
+        Node() : children(26, nullptr), isEnd(false) {}
+    };
+    Node* root;
+
+public:
+    Trie() { root = new Node(); }
+
+    void insert(string word) {
+        Node* curr = root;
+        for (char c : word) {
+            int idx = c - 'a';
+            if (!curr->children[idx]) {
+                curr->children[idx] = new Node();
+            }
+            curr = curr->children[idx];
+        }
+        curr->isEnd = true;
+    }
+
+    bool search(string word) {
+        Node* curr = root;
+        for (char c : word) {
+            int idx = c - 'a';
+            if (!curr->children[idx]) return false;
+            curr = curr->children[idx];
+        }
+        return curr->isEnd;
+    }
+
+    bool startsWith(string prefix) {
+        Node* curr = root;
+        for (char c : prefix) {
+            int idx = c - 'a';
+            if (!curr->children[idx]) return false;
+            curr = curr->children[idx];
+        }
+        return true;
+    }
+};
+\end{lstlisting}
+
+\subsection{Sparse Table}
+\begin{lstlisting}
+// Sparse Table for RMQ (Range Minimum Query)
+class SparseTable {
+private:
+    vector<vector<ll>> table;
+    vector<int> log;
+
+public:
+    SparseTable(vector<ll> &arr) {
+        int n = arr.size();
+        int maxLog = log2(n) + 1;
+        table.assign(n, vector<ll>(maxLog));
+        log.resize(n+1);
+
+        for (int i = 0; i < n; i++) table[i][0] = arr[i];
+
+        for (int j = 1; j < maxLog; j++) {
+            for (int i = 0; i + (1 << j) <= n; i++) {
+                table[i][j] = min(table[i][j-1], table[i + (1 << (j-1))][j-1]);
+            }
+        }
+
+        for (int i = 2; i <= n; i++) log[i] = log[i/2] + 1;
+    }
+
+    ll query(int l, int r) {
+        int j = log[r - l + 1];
+        return min(table[l][j], table[r - (1 << j) + 1][j]);
+    }
+};
+\end{lstlisting}
+
+\subsection{Ordered Set (PBDS)}
+\begin{lstlisting}
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+
+template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+// Usage:
+ordered_set<int> os;
+os.insert(5);
+os.insert(2);
+os.insert(7);
+os.order_of_key(5);  // Returns number of elements < 5
+*os.find_by_order(1);  // Returns element at index 1
+\end{lstlisting}
