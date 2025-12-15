@@ -1,15 +1,15 @@
 {
   // ===========================================
-  // FILE EXPLORER SETTINGS
+  // FILE EXPLORER SETTINGS (Enhanced)
   // ===========================================
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmPasteNative": false,
-  "explorer.compactFolders": false,
+  "explorer.compactFolders": true, // CHANGED: More compact file tree for monorepos/web projects.
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.js",
-    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.ts": "${capture}.js, ${capture}.d.ts", // Added d.ts nesting
+    "*.js": "${capture}.js.map, ${capture}.min.js",
     "*.jsx": "${capture}.js",
     "*.tsx": "${capture}.ts",
     "tsconfig.json": "tsconfig.*.json",
@@ -17,7 +17,7 @@
   },
 
   // ===========================================
-  // EDITOR APPEARANCE & BEHAVIOR
+  // EDITOR APPEARANCE & BEHAVIOR (Enhanced)
   // ===========================================
   "editor.fontFamily": "'Cascadia Code', 'Mononoki Nerd Font', 'JetbrainsMonoNL Nerd Font', Consolas, 'Courier New', monospace, 'Hack Nerd Font'",
   "editor.fontLigatures": true,
@@ -26,8 +26,8 @@
   "editor.wordWrap": "on",
   "editor.rulers": [80, 120],
   "editor.renderWhitespace": "boundary",
-  "editor.minimap.enabled": true,
-  "editor.minimap.autohide": "mouseover",
+  "editor.minimap.enabled": false,
+  "editor.minimap.autohide": false, // CHANGED: No mouseover distraction, either always on or off.
   "editor.minimap.maxColumn": 120,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "expand",
@@ -38,6 +38,9 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
+  "editor.stickyScroll.enabled": true, // NEW: Keeps current scope (class/function) visible at top.
+  "editor.unicodeHighlight.nonBasicCharacters": true, // NEW: Security/visual check for confusing characters.
+  "editor.foldingImportsByDefault": true, // NEW: Auto-fold large import blocks.
   "editor.quickSuggestions": {
     "other": true,
     "comments": false,
@@ -66,7 +69,7 @@
   },
 
   // ===========================================
-  // LANGUAGE-SPECIFIC SETTINGS
+  // LANGUAGE-SPECIFIC SETTINGS (CP & Web Dev)
   // ===========================================
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -107,14 +110,14 @@
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false,
     "editor.formatOnType": false,
-    "editor.tabSize": 4
+    "editor.tabSize": 2 // CHANGED: Consistent tab size
   },
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools",
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false,
     "editor.formatOnType": false,
-    "editor.tabSize": 4
+    "editor.tabSize": 2 // CHANGED: Consistent tab size
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -149,7 +152,7 @@
   "terminal.integrated.rightClickBehavior": "copyPaste",
 
   // ===========================================
-  // FILE MANAGEMENT
+  // FILE MANAGEMENT (Enhanced Performance)
   // ===========================================
   "files.autoSave": "onWindowChange",
   "files.autoSaveDelay": 1000,
@@ -157,6 +160,9 @@
     "**/.git": true,
     "**/.DS_Store": true,
     "**/node_modules": true,
+    "**/dist": true, // NEW: Exclude build output (web dev)
+    "**/.next": true, // NEW: Exclude Next.js build folder
+    "**/build": true, // NEW: Exclude build output
     "**/.vscode": false
   },
   "files.watcherExclude": {
@@ -170,22 +176,24 @@
   },
 
   // ===========================================
-  // CODE RUNNER SETTINGS
+  // CODE RUNNER SETTINGS (CP Optimization)
   // ===========================================
   "code-runner.runInTerminal": true,
   "code-runner.clearPreviousOutput": true,
   "code-runner.saveFileBeforeRun": true,
-  "code-runner.saveAllFilesBeforeRun": false,
+  "code-runner.saveAllFilesBeforeRun": true, // CHANGED: Ensure all files are saved
   "code-runner.showExecutionMessage": true,
   "code-runner.executorMap": {
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    // CP OPTIMIZATION: Added -O2 (optimization) and -std=c++20 (modern C++ standard)
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -Wextra -O2 && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -Wall -Wextra -std=c++20 -O2 && $dir$fileNameWithoutExt",
     "zig": "zig run",
-    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "php": "php",
     "python": "clear && python3 -u",
+    // ... (rest of the map remains the same)
     "perl": "perl",
     "perl6": "perl6",
     "ruby": "ruby",
@@ -244,6 +252,7 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
+  "git.untrackedChanges.scrollable.maximized": true, // NEW: Full-height untracked changes view.
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
 
@@ -258,6 +267,7 @@
   "workbench.startupEditor": "none",
   "workbench.layoutControl.enabled": false,
   "workbench.settings.applyToAllProfiles": [],
+  "workbench.editor.showTabs": "multiple", // NEW: Explicitly show tabs
 
   // ===========================================
   // WINDOW SETTINGS
@@ -318,8 +328,6 @@
     "markdown": false,
     "scminput": false
   },
-  "github.copilot.advanced": {},
-  "github.copilot.selectedCompletionModel": "",
   "github.copilot.nextEditSuggestions.enabled": true,
 
   // ===========================================
@@ -331,18 +339,23 @@
   // ===========================================
   // OTHER SETTINGS
   // ===========================================
-  "redhat.telemetry.enabled": true,
+  "redhat.telemetry.enabled": false, // NEW: Disabled RedHat telemetry
+  "telemetry.telemetryLevel": "off", // NEW: Disabled core VS Code telemetry
   "codestream.serverUrl": "https://codestream-api-v2-us1.service.newrelic.com",
   "vscode-edge-devtools.webhintInstallNotification": true,
 
   // ===========================================
-  // SEARCH SETTINGS
+  // SEARCH SETTINGS (Enhanced Performance)
   // ===========================================
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
     "**/*.code-search": true,
-    "**/.git": true
+    "**/.git": true,
+    "**/dist": true, // NEW: Exclude build output
+    "**/.next": true, // NEW: Exclude Next.js build folder
+    "**/build": true, // NEW: Exclude build output
+    "**/out": true // NEW: Exclude common output folder
   },
   "search.useIgnoreFiles": true,
   "search.useGlobalIgnoreFiles": true,
