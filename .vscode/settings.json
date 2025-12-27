@@ -27,7 +27,7 @@
   "editor.rulers": [80, 120],
   "editor.renderWhitespace": "boundary",
   "editor.minimap.enabled": false,
-  "editor.minimap.autohide": false, // CHANGED: No mouseover distraction, either always on or off.
+  "editor.minimap.autohide": "none", // CHANGED: No mouseover distraction, either always on or off.
   "editor.minimap.maxColumn": 120,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "expand",
@@ -262,7 +262,7 @@
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "symbols",
   "workbench.activityBar.location": "bottom",
-  "workbench.sideBar.location": "left",
+  "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": false,
   "workbench.startupEditor": "none",
   "workbench.layoutControl.enabled": false,
