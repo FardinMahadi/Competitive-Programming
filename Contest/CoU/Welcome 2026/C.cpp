@@ -1,48 +1,48 @@
 // In the name of Allah, the Most Gracious, the Most Merciful
 // C: FardinMahadi
 
-/*  ______  __      __  ______  ____
-   / ____/ /  \    / / / |_) ) /    |
+/*  ______  __        __  ______  _____
+   / ____/ /  \     / / / |_) ) /    _|
   / /___  / /\ \  / / / /--<  /_/| |
  / ____/ / /  \ \/ / / /_)  )   _| |_
-/_/     /_/    \__/ /_/____/   |_____| */
+/_/     /_/    \___/ /_/____/   |_____| */
 
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 
-using namespace __gnu_pbds;
 using namespace std;
+using namespace __gnu_pbds;
 
 using ll = long long;
 using ld = long double;
 
+// PBDS: order_of_key(x) = # of elements < x
+// PBDS: find_by_order(k) = iterator to k-th element (0-indexed)
+// For duplicates: use ordered_multiset<T> and insert {value, unique_id}
 template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 template<typename T> using ordered_multiset = tree<pair<T,int>, null_type, less<pair<T,int>>, rb_tree_tag, tree_order_statistics_node_update>;
-// For duplicates: use ordered_multiset<T> and insert {value, unique_id}
-// PBDS: find_by_order(k) = iterator to k-th element (0-indexed)
-// PBDS: order_of_key(x) = # of elements < x
 
 #define sp                  ' '
 #define nl                  '\n'
 #define F                   first
 #define S                   second
-#define pb                  push_back
-#define pf                  push_front
 #define popb                pop_back
 #define popf                pop_front
+#define pb                  push_back
+#define pf                  push_front
 #define gcd(x,y)            __gcd(x,y)
+#define ceildiv(a,b)        ((a+b-1)/b)
+#define sz(x)               ((int)(x).size())
 #define no                  cout << "NO" << nl
 #define yes                 cout << "YES" << nl
 #define all(a)              (a.begin()),(a.end())
 #define SUM(a)              accumulate(all(a),0LL)
 #define cinv(v)             for(auto &i : v) cin >> i
-#define coutv(v)            for(auto &i : v) cout << i << sp
-#define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
-#define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
 #define fixedpoint(x)       cout << fixed << setprecision(x)
-#define sz(x)               ((int)(x).size())
-#define ceildiv(a,b)        ((a+b-1)/b)
+#define coutv(v)            for(auto &i : v) cout << i << sp
+#define UNIQUE(X)           (X).erase(unique(all(X)),(X).end())
+#define SORT_UNIQUE(c)      (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
 
 inline ll lcm(ll a, ll b) {
     if (a == 0 || b == 0) return 0;
@@ -61,8 +61,7 @@ void __print(const char *x) { cerr << '"' << x << '"'; }
 void __print(const string &x) { cerr << '"' << x << '"'; }
 void __print(bool x) { cerr << (x ? "true" : "false"); }
 
-template<typename T>
-typename enable_if<is_arithmetic<T>::value>::type __print(const T &x) { cerr << x; }
+template<typename T> typename enable_if<is_arithmetic<T>::value>::type __print(const T &x) { cerr << x; }
 
 template<typename T>
 typename enable_if<!is_arithmetic<T>::value>::type __print(const T &x) {
@@ -93,15 +92,20 @@ template<class T> bool chmax(T &a, const T &b){ if(a < b){ a = b; return true; }
 template<class T> vector<T> compress(vector<T> v){ sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end()); return v; }
 
 // Constants
+const double PI = acos(-1.0);
 constexpr int N = 100000 + 5;
 constexpr ll LINF = (1LL<<62);
 constexpr int INF = 1000000000;
 constexpr int MOD = 1000000007;
-const double PI = acos(-1.0);
 
 void Solve(int tc) {
-  int n; cin >> n;
-  cout << (2*n - 2) << nl;
+    int n; cin >> n;
+    vector<long long> a(n);
+    cinv(a);
+    for (size_t i = 0; i < a.size() - 1; i++ ) {
+        if (abs(a[i]) < abs(a[i + 1])) a[i] = 0;
+        else if (abs(a[i] > abs(a[i + 1]))) a[i + 1] = 0;
+    }
 }
 
 int main() {
