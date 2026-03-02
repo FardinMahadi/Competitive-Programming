@@ -1,2 +1,13 @@
 .cph
 .vscode
+*.exe
+*.o
+*.out
+*.bin
+build/
+bin/
+obj/
+node_modules/
+.venv/
+inputf.in
+outputf.in

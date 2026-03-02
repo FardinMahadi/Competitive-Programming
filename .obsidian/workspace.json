@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "fb1716d1326b5c85",
+    "id": "1cf2702eecf5bf53",
     "type": "split",
     "children": [
       {
-        "id": "080ffaa2d4ce1201",
+        "id": "d0607071fb2e0618",
         "type": "tabs",
         "children": [
           {
-            "id": "5efd7bccffc30272",
+            "id": "f5c5505317d20fe5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_Platforms/Codeforces/Codeforces Index.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Codeforces Index"
+              "title": "README"
             }
           }
         ]
@@ -27,28 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d2ba63260af057b0",
+    "id": "93c0d4a2360f71af",
     "type": "split",
     "children": [
       {
-        "id": "a2dbfdbc966ba4a9",
+        "id": "5738e39e554248ae",
         "type": "tabs",
         "children": [
           {
-            "id": "6546481eb516a8c5",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
-            }
-          },
-          {
-            "id": "cfe150cd7fb4b75b",
+            "id": "d286ee3047e5f038",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +52,7 @@
             }
           },
           {
-            "id": "bb1a3feab1817b2a",
+            "id": "d16bb740801acbc7",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,20 +68,20 @@
     "width": 300
   },
   "right": {
-    "id": "90f35e46fd350bb0",
+    "id": "1aafde1fc6d14f5f",
     "type": "split",
     "children": [
       {
-        "id": "890fd45f731f5e08",
+        "id": "b2e4230284e32d2f",
         "type": "tabs",
         "children": [
           {
-            "id": "64a234ec8a39e3ae",
+            "id": "6499484ad86d3f89",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "02_Platforms/Codeforces/Codeforces Index.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,25 +91,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Codeforces Index"
+              "title": "Backlinks for README"
             }
           },
           {
-            "id": "1fa142212ebe6b38",
+            "id": "3c10f9fd3a3a1208",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "02_Platforms/Codeforces/Codeforces Index.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Codeforces Index"
+              "title": "Outgoing links from README"
             }
           },
           {
-            "id": "22930bdcf66ba0fa",
+            "id": "dac8989a13010c35",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -137,7 +124,7 @@
             }
           },
           {
-            "id": "fff2bd2f668b43a0",
+            "id": "487d910a00c31d32",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -151,18 +138,18 @@
             }
           },
           {
-            "id": "74d0acb512943ead",
+            "id": "a4b7a620444604a2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "02_Platforms/Codeforces/Codeforces Index.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Codeforces Index"
+              "title": "Outline of README"
             }
           }
         ]
@@ -183,25 +170,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "5efd7bccffc30272",
+  "active": "d286ee3047e5f038",
   "lastOpenFiles": [
-    "02_Platforms/Platforms.md",
-    "02_Platforms/Codeforces/Codeforces Index.md",
-    "[[Codeforces/800.md",
-    "[[Codeforces",
-    "02_Platforms/LeetCode/LeetCode Index.md",
-    "LeetCode/Arrays.md",
-    "03_Contests/Contests.md",
-    "LeetCode",
-    "Welcome.md",
-    "02_Platforms/GeekForGeeks/GeekForGeeks Index.md",
-    "02_Platforms/CodeChef/CodeChef Index.md",
-    "02_Platforms/GeekForGeeks",
-    "02_Platforms/CodeChef",
-    "02_Platforms/LeetCode",
-    "02_Platforms/Codeforces",
-    "01_Concepts/Handbook.md",
-    "01_Concepts/Concepts.md",
-    "00_Inbox/Inbox.md"
+    "Handbook/versions/by-contest/general/handbook-general-2025-12-09.pdf",
+    "Handbook/build/main.pdf"
   ]
 }
