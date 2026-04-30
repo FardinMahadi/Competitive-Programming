@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e2dd1982bd9d74ed",
+        "id": "8b17830d85df911b",
         "type": "tabs",
         "children": [
           {
-            "id": "471f654fffc0bf69",
+            "id": "ece50bc5d7c3a2d9",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -238,6 +238,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "vscode-editor:Create Code File": false,
       "bases:Create new base": false,
       "markdown-importer:Open format converter": false,
       "audio-recorder:Start/stop recording": false,
@@ -254,8 +255,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "471f654fffc0bf69",
+  "active": "ece50bc5d7c3a2d9",
   "lastOpenFiles": [
+    "Platforms/LeetCode/12. Integer to Roman/1.cpp",
+    "Platforms/LeetCode/13. Roman to Integer/1.ts",
+    "Platforms/LeetCode/13. Roman to Integer",
+    "Platforms/LeetCode/12. Integer to Roman/1.ts",
+    "Platforms/LeetCode/12. Integer to Roman",
     "AnyMe/README.md",
     "AnyMe/Completed.md",
     "AnyMe/Queue.md",
@@ -265,10 +271,6 @@
     "Differential Equation(Engineering Mathematics)-Bangla Tutorial/23 - Bessel Equation and It's Solution ｜｜ Differential Equation ｜｜ Artist's Science.mp4.part",
     "Differential Equation(Engineering Mathematics)-Bangla Tutorial/22 - Solution of Wave Equation ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
     "Differential Equation(Engineering Mathematics)-Bangla Tutorial/22 - Solution of Wave Equation ｜｜ Differential Equation ｜｜ Artist's Science.mp4.part",
-    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/21 - Solving PDE by Separation of Variable Method ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
-    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/21 - Solving PDE by Separation of Variable Method ｜｜ Differential Equation ｜｜ Artist's Science.mp4.part",
-    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/02 - Formation of Differential Equation.mp4",
-    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/20 - Higher Order Linear PDE ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
     "Study/Deep Work/Deep Focus- Study and Work Session Protocol/Preparation Phase/deep-work-session.canvas",
     "node_modules/yt-dlp-wrap/README.md",
     "Daily Notes/2026-04-08.md",
@@ -304,7 +306,6 @@
     "Achievements/Certificates/ph-21-days-web-development.png",
     "Deep Work/Deep Focus- Study and Work Session Protocol/Background/Race Against the Machine.canvas",
     "Deep Work/Deep Focus- Study and Work Session Protocol/Background/Flow-state.md",
-    "Deep Work/Deep Focus- Study and Work Session Protocol/README.md",
     "Books/Deep Work/Deep Focus- Study and Work Session Protocol/Preparation Phase/5 Things Combination.canvas",
     "Books/Deep Work/Deep Focus- Study and Work Session Protocol/Background/Race Against the Machine.canvas",
     "Untitled.canvas",

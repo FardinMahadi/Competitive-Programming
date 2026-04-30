@@ -259,7 +259,7 @@
   // ===========================================
   // WORKBENCH APPEARANCE
   // ===========================================
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Minimal Fog",
   "workbench.iconTheme": "symbols",
   "workbench.activityBar.location": "bottom",
   "workbench.sideBar.location": "left",
