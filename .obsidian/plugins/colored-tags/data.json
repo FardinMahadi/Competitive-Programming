@@ -260,7 +260,13 @@
     "me/habbits": 6,
     "how": 73,
     "test": 74,
-    "test/sub-test": 1
+    "test/sub-test": 1,
+    "anime": 75,
+    "active": 76,
+    "reference": 77,
+    "sources": 78,
+    "streaming": 79,
+    "waiting-list": 80
   },
   "_version": 3
 }

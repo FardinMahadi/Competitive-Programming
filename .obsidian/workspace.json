@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2d86e17ac1b82361",
+        "id": "e2dd1982bd9d74ed",
         "type": "tabs",
         "children": [
           {
-            "id": "cd1155e9dd543e95",
+            "id": "471f654fffc0bf69",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -29,7 +29,7 @@
       {
         "id": "d46aecce6a1078b0",
         "type": "tabs",
-        "dimension": 66.66666666666667,
+        "dimension": 67.42671009771986,
         "children": [
           {
             "id": "42af4f1ef891900d",
@@ -76,7 +76,7 @@
       {
         "id": "2af4f3c830b17026",
         "type": "tabs",
-        "dimension": 33.333333333333336,
+        "dimension": 32.57328990228013,
         "children": [
           {
             "id": "981d4ae76a88fb41",
@@ -92,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 269.5
   },
   "right": {
     "id": "279416c7625b4660",
@@ -101,7 +101,7 @@
       {
         "id": "2fd9a64f0deb3159",
         "type": "tabs",
-        "dimension": 67.85714285714286,
+        "dimension": 57.5799721835883,
         "children": [
           {
             "id": "53f920f8060070a2",
@@ -123,16 +123,32 @@
             }
           },
           {
+            "id": "4c18205f15a43f5d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "AnyMe/README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          },
+          {
             "id": "5720a8812050f3b7",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "AnyMe/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -165,26 +181,44 @@
             }
           },
           {
-            "id": "4c18205f15a43f5d",
+            "id": "87e61d08f4c6c98d",
             "type": "leaf",
             "state": {
-              "type": "outline",
+              "type": "file-properties",
               "state": {
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "file": "AnyMe/README.md"
               },
-              "icon": "lucide-list",
-              "title": "Outline"
+              "icon": "lucide-info",
+              "title": "File properties for README"
+            }
+          },
+          {
+            "id": "736373afd563ffe6",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
+            }
+          },
+          {
+            "id": "2451eac80ff65eb9",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 7
       },
       {
         "id": "2a5073634fabf08a",
         "type": "tabs",
-        "dimension": 32.142857142857146,
+        "dimension": 42.4200278164117,
         "children": [
           {
             "id": "0c7f632e897519ae",
@@ -200,7 +234,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 287.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -214,59 +248,69 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "omnisearch:Omnisearch": false,
-      "obsidian-importer:Open Importer": false
+      "obsidian-importer:Open Importer": false,
+      "media-extended:Open external media": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cd1155e9dd543e95",
+  "active": "471f654fffc0bf69",
   "lastOpenFiles": [
-    "Competitive Programming/02_Platforms/Codeforces/Codeforces Index.md",
-    "Competitive Programming/Welcome.md",
-    "Competitive Programming/02_Platforms/CodeChef/CodeChef Index.md",
-    "Codeforces/1300 Rating.md",
-    "Codeforces",
-    "skills/README.md",
-    "Incomplete tasks.md",
-    "Untitled.base",
-    "skills/06-testing-fundamentals/README.md",
-    "learning-roadmap-2026-topics.md",
-    "test.md",
-    "Journal/2025-02-17.md",
-    "Technical/Snippet/EFCore InMemory Db Config with Test.md",
-    "Technical/Home/DASH.md",
-    "2025-02-16.md",
-    "Technical/Technical/Azure Cache for Redis (Pluralsight).md",
-    "Main Dash.md",
-    "Technical/Technical/SQLite vs SQL Server.md",
-    "Technical/Technical/API Authentications.md",
-    "Blue/Snippets/SQL Script Disposable Income.md",
-    "Journal/Blue/Journal/2024-06-14.md",
-    "Technical/Technical/Idempotency in rest api.md",
-    "publish the Obsidian Vid.md",
-    "Business/Journal/2025-02-15 - todays.md",
-    "Business/Journal/2025-02-14.md",
-    "Blue/Common Issues/Everymessage, check documents being generated or not, Unproduced Welcome Letters.md",
-    "code snippets.md",
-    "Blog",
-    "Vlog",
-    "Business/Journal/2025-02-06.md",
-    "Business/Journal/Technical/Migrated/assets/why-not-jwt.png",
-    "Business/Journal/Technical/Migrated/assets/original.jpg",
-    "Business/Journal/Technical/Migrated/assets/oYukX.jpg",
-    "Business/Journal/Technical/Migrated/assets/iqueryable-dbcontext-everywhere.jpg",
-    "Business/Journal/Technical/Migrated/assets/image4.png",
-    "Business/Journal/Technical/Migrated/assets/image3.png",
-    "Business/Journal/Technical/Migrated/assets/image2.png",
-    "Business/Journal/Technical/Migrated/assets/image1.png",
-    "Business/Journal/Technical/Migrated/assets/image.jpeg",
-    "Business/Journal/Technical/Migrated/assets/image 2.png",
-    "Business/Journal/Technical/Migrated/assets/Brand.psd",
-    "Business/Journal/Technical/Migrated/assets/Brand-techpress.psd",
-    "Business/Journal/Technical/Migrated/assets/Brand-C.psd",
-    "Business/Journal/Technical/Migrated/assets/Audio 1.mp4",
-    "Business/Journal/Technical/Technical/Self-Improvement",
-    "Business/Journal/Technical/Snippet/Contents",
-    "Business/Journal/Technical/Migrated/Mind Map.canvas",
-    "Journal/Technical/Migrated/Mind Map.canvas",
-    "Technical/Migrated/Mind Map.canvas"
+    "AnyMe/README.md",
+    "AnyMe/Completed.md",
+    "AnyMe/Queue.md",
+    "AnyMe",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/03 - First Order Differential Equations (Part 1).mp4",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/23 - Bessel Equation and It's Solution ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/23 - Bessel Equation and It's Solution ｜｜ Differential Equation ｜｜ Artist's Science.mp4.part",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/22 - Solution of Wave Equation ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/22 - Solution of Wave Equation ｜｜ Differential Equation ｜｜ Artist's Science.mp4.part",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/21 - Solving PDE by Separation of Variable Method ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/21 - Solving PDE by Separation of Variable Method ｜｜ Differential Equation ｜｜ Artist's Science.mp4.part",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/02 - Formation of Differential Equation.mp4",
+    "Differential Equation(Engineering Mathematics)-Bangla Tutorial/20 - Higher Order Linear PDE ｜｜ Differential Equation ｜｜ Artist's Science.mp4",
+    "Study/Deep Work/Deep Focus- Study and Work Session Protocol/Preparation Phase/deep-work-session.canvas",
+    "node_modules/yt-dlp-wrap/README.md",
+    "Daily Notes/2026-04-08.md",
+    "Study/Deep Work/Deep Focus- Study and Work Session Protocol/Background/deep-work-theory.canvas",
+    "Study/Deep Work/Deep Focus- Study and Work Session Protocol/Background/Race Against the Machine.canvas",
+    "Study/Deep Work/Deep Focus- Study and Work Session Protocol/Preparation Phase/5 Things Combination.canvas",
+    "Entertainment/AnyMe/Active.md",
+    "Study/Deep Work/Session-end.md",
+    "Study/Deep Work/Deep Focus- Study and Work Session Protocol/Background/Flow-state.md",
+    "Pasted image 20260410114953.png",
+    "Assets/Pasted image 20260410115032.png",
+    "Assets/Pasted image 20260409223611.png",
+    "Assets/Pasted image 20260409223417.png",
+    "Assets/Pasted image 20260408143925.png",
+    "Study/Deep Work/Deep Focus- Study and Work Session Protocol/README.md",
+    "Study/Deep Work/README.md",
+    "Study/README.md",
+    "VAULT-IMPROVEMENT-COMPLETE.md",
+    "NAMING-CONVENTION-COMPLETE.md",
+    "Study/Deep Work/Boundaries.md",
+    "CLEANUP-GUIDE.md",
+    "Study/Deep Work/To-Do.md",
+    "README.md",
+    "Not-To-Do.md",
+    "rac.md",
+    "Study/Books/README.md",
+    "Study/Books/Screenshot 2024-10-10 102325.png",
+    "Study/Books/Book-list.md",
+    "Study/Books/Book-list.md.md",
+    "Study/Deep Work/Session-start.md",
+    "Untitled.md",
+    "Deep Work/Deep Focus- Study and Work Session Protocol/Preparation Phase/5 Things Combination.canvas",
+    "Achievements/Certificates/ph-21-days-web-development.png",
+    "Deep Work/Deep Focus- Study and Work Session Protocol/Background/Race Against the Machine.canvas",
+    "Deep Work/Deep Focus- Study and Work Session Protocol/Background/Flow-state.md",
+    "Deep Work/Deep Focus- Study and Work Session Protocol/README.md",
+    "Books/Deep Work/Deep Focus- Study and Work Session Protocol/Preparation Phase/5 Things Combination.canvas",
+    "Books/Deep Work/Deep Focus- Study and Work Session Protocol/Background/Race Against the Machine.canvas",
+    "Untitled.canvas",
+    "Books/Screenshot 2024-10-10 102325.png",
+    "Achievements/2025/PH-Campus Ambassador/85.jpg",
+    "Untitled-12.jpg",
+    "Business/Journal/Technical/Migrated/Mind Map.canvas"
   ]
 }

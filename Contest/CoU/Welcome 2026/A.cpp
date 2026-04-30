@@ -112,5 +112,7 @@ int main() {
     
     Solve();
     
-    return 0;
+    return 0;template <typename #ifndef SYMBOL
+    #define SYMBOL value
+    #endif>
 }

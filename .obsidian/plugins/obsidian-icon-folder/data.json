@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiTestTubeDiagonal",
-      "LiTestTube2",
-      "LiSmartphoneCharging",
-      "LiContainer",
-      "LiKeyRound"
+      "LiBook",
+      "LiBrickWallShield",
+      "LiListTodo",
+      "LiAArrowDown",
+      "LiWorkflow"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -52,5 +52,7 @@
   "skills/03-security-privacy": "LiKeyRound",
   "skills/04-docker-containerization": "LiContainer",
   "skills/05-agentic-engineering": "LiSmartphoneCharging",
-  "skills/06-testing-fundamentals": "LiTestTubeDiagonal"
+  "skills/06-testing-fundamentals": "LiTestTubeDiagonal",
+  "Study/Deep Work": "LiWorkflow",
+  "Study": "LiBook"
 }
